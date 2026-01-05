@@ -19,7 +19,11 @@ namespace PharmaSISuperTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Centre la PictureBox horizontalement
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
 
+            // Centre la PictureBox verticalement
+            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
     }
 }
