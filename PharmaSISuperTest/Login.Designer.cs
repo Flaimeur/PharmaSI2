@@ -36,10 +36,12 @@ namespace PharmaSISuperTest
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::PharmaSISuperTest.Properties.Resources.Box_connexion;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(602, 225);
+            this.pictureBox1.Location = new System.Drawing.Point(839, 340);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(488, 443);
+            this.pictureBox1.Size = new System.Drawing.Size(400, 500);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -56,6 +58,7 @@ namespace PharmaSISuperTest
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
