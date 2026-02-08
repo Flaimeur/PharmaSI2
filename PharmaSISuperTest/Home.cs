@@ -135,8 +135,8 @@ namespace PharmaSISuperTest
 
         private void produitt_Click(object sender, EventArgs e)
         {
-            Consultation consultation = new Produit();
-            consultation.Show();
+            Produit Produit = new Produit();
+            Produit.Show();
             this.Hide();
         }
     }
