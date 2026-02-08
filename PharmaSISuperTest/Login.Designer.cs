@@ -1,4 +1,6 @@
-﻿
+﻿using PharmaSISuperTest.Helpers;     
+
+
 namespace PharmaSISuperTest
 {
     partial class Login
@@ -30,41 +32,17 @@ namespace PharmaSISuperTest
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
+            this.textBoxMotDePasse = new System.Windows.Forms.TextBox();
+            this.buttonSeConnecter = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
-            this.pictureBox2.Image = global::PharmaSISuperTest.Properties.Resources.Icon;
-            this.pictureBox2.Location = new System.Drawing.Point(747, 225);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(123, 123);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::PharmaSISuperTest.Properties.Resources.Box_connexion;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(608, 219);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 500);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -94,41 +72,66 @@ namespace PharmaSISuperTest
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(632, 512);
+            this.label3.Location = new System.Drawing.Point(633, 499);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Mot de passe";
             // 
-            // textBox1
+            // textBoxIdentifiant
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(638, 429);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(320, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxIdentifiant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxIdentifiant.Location = new System.Drawing.Point(638, 429);
+            this.textBoxIdentifiant.Name = "textBoxIdentifiant";
+            this.textBoxIdentifiant.Size = new System.Drawing.Size(343, 20);
+            this.textBoxIdentifiant.TabIndex = 5;
             // 
-            // textBox2
+            // textBoxMotDePasse
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(638, 540);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(320, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxMotDePasse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxMotDePasse.Location = new System.Drawing.Point(639, 527);
+            this.textBoxMotDePasse.Name = "textBoxMotDePasse";
+            this.textBoxMotDePasse.Size = new System.Drawing.Size(343, 20);
+            this.textBoxMotDePasse.TabIndex = 6;
             // 
-            // button1
+            // buttonSeConnecter
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(637, 613);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(320, 40);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Se connecter";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonSeConnecter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSeConnecter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonSeConnecter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSeConnecter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSeConnecter.ForeColor = System.Drawing.Color.White;
+            this.buttonSeConnecter.Location = new System.Drawing.Point(637, 613);
+            this.buttonSeConnecter.Name = "buttonSeConnecter";
+            this.buttonSeConnecter.Size = new System.Drawing.Size(344, 40);
+            this.buttonSeConnecter.TabIndex = 7;
+            this.buttonSeConnecter.Text = "Se connecter";
+            this.buttonSeConnecter.UseVisualStyleBackColor = false;
+            this.buttonSeConnecter.Click += new System.EventHandler(this.buttonSeConnecter_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
+            this.pictureBox2.Image = global::PharmaSISuperTest.Properties.Resources.Icon;
+            this.pictureBox2.Location = new System.Drawing.Point(747, 225);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(123, 123);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::PharmaSISuperTest.Properties.Resources.Box_connexion;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(608, 219);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 500);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -136,9 +139,9 @@ namespace PharmaSISuperTest
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1616, 939);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonSeConnecter);
+            this.Controls.Add(this.textBoxMotDePasse);
+            this.Controls.Add(this.textBoxIdentifiant);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -162,9 +165,9 @@ namespace PharmaSISuperTest
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxIdentifiant;
+        private System.Windows.Forms.TextBox textBoxMotDePasse;
+        private System.Windows.Forms.Button buttonSeConnecter;
     }
 }
 
