@@ -31,16 +31,6 @@ namespace PharmaSISuperTest
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultation));
             this.dataGridViewPraticiens = new System.Windows.Forms.DataGridView();
-            this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodePostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypePraticien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Spécialité = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diplôme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Niveau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoefficientPrescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.produit = new System.Windows.Forms.MenuStrip();
@@ -61,72 +51,11 @@ namespace PharmaSISuperTest
             // 
             this.dataGridViewPraticiens.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.dataGridViewPraticiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPraticiens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nom,
-            this.Prenom,
-            this.Adresse,
-            this.Ville,
-            this.CodePostal,
-            this.TypePraticien,
-            this.Spécialité,
-            this.Diplôme,
-            this.Niveau,
-            this.CoefficientPrescription});
             this.dataGridViewPraticiens.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.dataGridViewPraticiens.Location = new System.Drawing.Point(288, 280);
             this.dataGridViewPraticiens.Name = "dataGridViewPraticiens";
             this.dataGridViewPraticiens.Size = new System.Drawing.Size(1040, 515);
             this.dataGridViewPraticiens.TabIndex = 0;
-            // 
-            // Nom
-            // 
-            this.Nom.HeaderText = "Nom";
-            this.Nom.Name = "Nom";
-            // 
-            // Prenom
-            // 
-            this.Prenom.HeaderText = "Prenom";
-            this.Prenom.Name = "Prenom";
-            // 
-            // Adresse
-            // 
-            this.Adresse.HeaderText = "Adresse";
-            this.Adresse.Name = "Adresse";
-            // 
-            // Ville
-            // 
-            this.Ville.HeaderText = "Ville";
-            this.Ville.Name = "Ville";
-            // 
-            // CodePostal
-            // 
-            this.CodePostal.HeaderText = "Code Postal";
-            this.CodePostal.Name = "CodePostal";
-            // 
-            // TypePraticien
-            // 
-            this.TypePraticien.HeaderText = "Type";
-            this.TypePraticien.Name = "TypePraticien";
-            // 
-            // Spécialité
-            // 
-            this.Spécialité.HeaderText = "Spécialité";
-            this.Spécialité.Name = "Spécialité";
-            // 
-            // Diplôme
-            // 
-            this.Diplôme.HeaderText = "Diplôme ";
-            this.Diplôme.Name = "Diplôme";
-            // 
-            // Niveau
-            // 
-            this.Niveau.HeaderText = "Niveau";
-            this.Niveau.Name = "Niveau";
-            // 
-            // CoefficientPrescription
-            // 
-            this.CoefficientPrescription.HeaderText = "Coefficient Prescription";
-            this.CoefficientPrescription.Name = "CoefficientPrescription";
             // 
             // pictureBox9
             // 
@@ -238,6 +167,7 @@ namespace PharmaSISuperTest
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consultation";
             this.Text = "Consultation";
+            this.Load += new System.EventHandler(this.Consultation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -251,16 +181,6 @@ namespace PharmaSISuperTest
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewPraticiens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prenom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ville;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodePostal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypePraticien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Spécialité;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Diplôme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Niveau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CoefficientPrescription;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MenuStrip produit;

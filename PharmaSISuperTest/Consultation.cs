@@ -24,11 +24,32 @@ namespace PharmaSISuperTest
             try
             {
                 var praticiens = praticienService.GetAllPraticiens();
+
+                dataGridViewPraticiens.AutoGenerateColumns = true;
                 dataGridViewPraticiens.DataSource = praticiens;
+                dataGridViewPraticiens.ReadOnly = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur : {ex.Message}", "Erreur");
+            }
+        }
+
+        private void AjusterColonnes()
+        {
+            if (dataGridViewPraticiens.Columns.Count > 0)
+            {
+                dataGridViewPraticiens.Columns["Nom"].HeaderText = "Nom";
+                dataGridViewPraticiens.Columns["Prenom"].HeaderText = "Prénom";
+                dataGridViewPraticiens.Columns["Adresse"].HeaderText = "Adresse";
+                dataGridViewPraticiens.Columns["Ville"].HeaderText = "Ville";
+                dataGridViewPraticiens.Columns["CodePostal"].HeaderText = "Code Postal";
+                dataGridViewPraticiens.Columns["Type"].HeaderText = "Type";
+                dataGridViewPraticiens.Columns["Specialite"].HeaderText = "Spécialité";
+                dataGridViewPraticiens.Columns["Diplome"].HeaderText = "Diplôme";
+                dataGridViewPraticiens.Columns["Niveau"].HeaderText = "Niveau";
+                dataGridViewPraticiens.Columns["CoefficientNotoriete"].HeaderText = "Coefficient Notoriété";
+                dataGridViewPraticiens.Columns["CoefficientPrescription"].HeaderText = "Coefficient Prescription";
             }
         }
 
@@ -47,5 +68,6 @@ namespace PharmaSISuperTest
 
             }
         }
+
     }
 }

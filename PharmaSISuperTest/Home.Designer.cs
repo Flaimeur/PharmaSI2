@@ -87,7 +87,6 @@ namespace PharmaSISuperTest
             this.produitt.Name = "produitt";
             this.produitt.Size = new System.Drawing.Size(89, 25);
             this.produitt.Text = "Produit";
-            this.produitt.Click += new System.EventHandler(this.produitt_Click);
             // 
             // saisie
             // 
