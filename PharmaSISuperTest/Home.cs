@@ -121,9 +121,23 @@ namespace PharmaSISuperTest
 
             if (result == DialogResult.Yes)
             {
-                this.Close();  // Ferme Home
-                               // Le Login réapparaît automatiquement (il était juste Hide())
+                this.Close();
+
             }
+        }
+
+        private void praticien_Click(object sender, EventArgs e)
+        {
+            Consultation consultation = new Consultation();
+            consultation.Show();
+            this.Hide();
+        }
+
+        private void produitt_Click(object sender, EventArgs e)
+        {
+            Consultation consultation = new Produit();
+            consultation.Show();
+            this.Hide();
         }
     }
 }

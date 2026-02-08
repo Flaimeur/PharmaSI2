@@ -100,6 +100,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultation.Designer.cs">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\PharmaSIContext.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -129,6 +135,9 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\PraticienService.cs" />
+    <EmbeddedResource Include="Consultation.resx">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
