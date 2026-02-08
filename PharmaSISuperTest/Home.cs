@@ -133,5 +133,11 @@ namespace PharmaSISuperTest
             this.Hide();
         }
 
+        private void produitt_Click(object sender, EventArgs e)
+        {
+            Produit Produit = new Produit();
+            Produit.Show();
+            this.Hide();
+        }
     }
 }
