@@ -47,7 +47,7 @@ namespace PharmaSISuperTest.Services
                                 products.Add(new
                                 {
                                     NumeroDuProduit = reader["NumeroDuProduit"].ToString(),
-                                    PrixEchantillon = Convert.ToDecimal(reader["PrixEchantillon"]),
+                                    PrixEchantillon = reader["PrixEchantillon"] != DBNull.Value ? Convert.ToDecimal(reader["PrixEchantillon"]) : 0,
                                     EffetsTherapeutiques = reader["EffetsTherapeutiques"].ToString(),
                                     ContreIndications = reader["Contre_indications"].ToString(),
                                     Interactions = reader["Interactions"].ToString(),
