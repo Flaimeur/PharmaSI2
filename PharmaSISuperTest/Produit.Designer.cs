@@ -29,12 +29,135 @@ namespace PharmaSISuperTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produit));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.praticien = new System.Windows.Forms.ToolStripMenuItem();
+            this.produitt = new System.Windows.Forms.ToolStripMenuItem();
+            this.saisie = new System.Windows.Forms.ToolStripMenuItem();
+            this.creecompterendu = new System.Windows.Forms.ToolStripMenuItem();
+            this.voircompterendu = new System.Windows.Forms.ToolStripMenuItem();
+            this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
+            this.Load += new System.EventHandler(this.Produit_Load);
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.produitt,
+            this.saisie,
+            this.deconexion});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 40);
+            this.menuStrip1.TabIndex = 41;
+            this.menuStrip1.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.praticien});
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem1.Image = global::PharmaSISuperTest.Properties.Resources.Icon_2;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(190, 36);
+            this.toolStripMenuItem1.Text = "Consultation";
+            // 
+            // praticien
+            // 
+            this.praticien.Name = "praticien";
+            this.praticien.Size = new System.Drawing.Size(211, 40);
+            this.praticien.Text = "Praticien";
+            // 
+            // produitt
+            // 
+            this.produitt.ForeColor = System.Drawing.Color.White;
+            this.produitt.Image = global::PharmaSISuperTest.Properties.Resources.Icon_3;
+            this.produitt.Name = "produitt";
+            this.produitt.Size = new System.Drawing.Size(132, 36);
+            this.produitt.Text = "Produit";
+            // 
+            // saisie
+            // 
+            this.saisie.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.creecompterendu,
+            this.voircompterendu});
+            this.saisie.ForeColor = System.Drawing.Color.White;
+            this.saisie.Image = global::PharmaSISuperTest.Properties.Resources.Icon_3;
+            this.saisie.Name = "saisie";
+            this.saisie.Size = new System.Drawing.Size(115, 36);
+            this.saisie.Text = "Saisie";
+            // 
+            // creecompterendu
+            // 
+            this.creecompterendu.Name = "creecompterendu";
+            this.creecompterendu.Size = new System.Drawing.Size(338, 40);
+            this.creecompterendu.Text = "Créer compte-rendu";
+            // 
+            // voircompterendu
+            // 
+            this.voircompterendu.Name = "voircompterendu";
+            this.voircompterendu.Size = new System.Drawing.Size(338, 40);
+            this.voircompterendu.Text = "Voir compte-rendu";
+            // 
+            // deconexion
+            // 
+            this.deconexion.ForeColor = System.Drawing.Color.White;
+            this.deconexion.Image = global::PharmaSISuperTest.Properties.Resources.logout_01;
+            this.deconexion.Name = "deconexion";
+            this.deconexion.Size = new System.Drawing.Size(196, 36);
+            this.deconexion.Text = "Déconnexion";
+            // 
+            // dataGridViewProduct
+            // 
+            this.dataGridViewProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProduct.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.dataGridViewProduct.Location = new System.Drawing.Point(182, 294);
+            this.dataGridViewProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewProduct.Name = "dataGridViewProduct";
+            this.dataGridViewProduct.RowHeadersWidth = 62;
+            this.dataGridViewProduct.Size = new System.Drawing.Size(1560, 792);
+            this.dataGridViewProduct.TabIndex = 42;
+            // 
+            // Produit
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.ClientSize = new System.Drawing.Size(1924, 1170);
+            this.Controls.Add(this.dataGridViewProduct);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Produit";
             this.Text = "Produit";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem praticien;
+        private System.Windows.Forms.ToolStripMenuItem produitt;
+        private System.Windows.Forms.ToolStripMenuItem saisie;
+        private System.Windows.Forms.ToolStripMenuItem creecompterendu;
+        private System.Windows.Forms.ToolStripMenuItem voircompterendu;
+        private System.Windows.Forms.ToolStripMenuItem deconexion;
+        private System.Windows.Forms.DataGridView dataGridViewProduct;
     }
 }
