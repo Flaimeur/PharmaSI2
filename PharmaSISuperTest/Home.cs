@@ -140,5 +140,13 @@ namespace PharmaSISuperTest
             this.Hide();
         }
 
+
+        private void creecompterendu_Click(object sender, EventArgs e)
+        {
+            Saisie saisie = new Saisie(currentEmployee);
+            saisie.Show();
+            this.Hide();
+        }
+
     }
 }

@@ -51,6 +51,7 @@ namespace PharmaSISuperTest.Services
                             {
                                 praticiens.Add(new
                                 {
+                                    IdPraticien = Convert.ToInt32(reader["idPraticien"]),
                                     Nom = reader["nom"].ToString(),
                                     Prenom = reader["prenom"].ToString(),
                                     Adresse = reader["adresse"].ToString(),

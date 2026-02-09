@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using PharmaSISuperTest.Services;
 
@@ -48,5 +49,46 @@ namespace PharmaSISuperTest
                 this.Close();
         }
 
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Form[] openForms = Application.OpenForms.OfType<Form>().ToArray();
+            Home homeForm = openForms.OfType<Home>().FirstOrDefault();
+
+            if (homeForm != null)
+            {
+                homeForm.Show();
+            }
+
+            this.Close();
+        }
+
+        private void praticien_Click(object sender, EventArgs e)
+        {
+            Consultation consultation = new Consultation();
+            consultation.Show();
+            this.Close();
+            consultation.ShowDialog();
+        }
+
+        private void deconexion_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+           "Êtes-vous sûr de vouloir vous déconnecter ?",
+           "Déconnexion",
+           MessageBoxButtons.YesNo,
+           MessageBoxIcon.Question
+           );
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using PharmaSISuperTest.Services;
 
@@ -69,5 +70,24 @@ namespace PharmaSISuperTest
             }
         }
 
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Form[] openForms = Application.OpenForms.OfType<Form>().ToArray();
+            Home homeForm = openForms.OfType<Home>().FirstOrDefault();
+
+            if (homeForm != null)
+            {
+                homeForm.Show();
+            }
+
+            this.Close();
+        }
+
+        private void produitt_Click(object sender, EventArgs e)
+        {
+            Produit Produit = new Produit();
+            Produit.Show();
+            this.Close();
+        }
     }
 }

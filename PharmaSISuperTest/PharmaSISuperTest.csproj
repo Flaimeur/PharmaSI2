@@ -140,9 +140,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
+    <Compile Include="Saisie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Saisie.Designer.cs">
+      <DependentUpon>Saisie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\PraticienService.cs" />
+    <Compile Include="Models\Visite.cs" />
+    <Compile Include="Services\VisiteService.cs" />
     <EmbeddedResource Include="Consultation.resx">
       <DependentUpon>Consultation.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +173,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Saisie.resx">
+      <DependentUpon>Saisie.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -196,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icon-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
