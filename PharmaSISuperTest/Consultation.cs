@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using PharmaSISuperTest.Models;
 using PharmaSISuperTest.Services;
 
 namespace PharmaSISuperTest
 {
     public partial class Consultation : Form
     {
+
+        private Employee currentEmployee;
         private PraticienService praticienService;
 
         public Consultation()
@@ -57,16 +60,26 @@ namespace PharmaSISuperTest
         private void deconexion_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-            "Êtes-vous sûr de vouloir vous déconnecter ?",
-            "Déconnexion",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
+                "Êtes-vous sûr de vouloir vous déconnecter ?",
+                "Déconnexion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
             );
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                // Ferme TOUTES les fenêtres sauf Login
+                foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+                {
+                    if (!(form is Login))
+                    {
+                        form.Close();
+                    }
+                }
 
+                // Affiche Login
+                Login login = new Login();
+                login.Show();
             }
         }
 
@@ -88,6 +101,25 @@ namespace PharmaSISuperTest
             Produit Produit = new Produit();
             Produit.Show();
             this.Close();
+        }
+
+        private void creecompterendu_Click(object sender, EventArgs e)
+        {
+            Saisie saisie = new Saisie(currentEmployee);
+            saisie.Show();
+            this.Hide();
+        }
+
+        private void voircompterendu_Click(object sender, EventArgs e)
+        {
+            ViewVisites viewVisites = new ViewVisites(currentEmployee);
+            viewVisites.Show();
+            this.Hide();
+        }
+
+        private void saisie_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

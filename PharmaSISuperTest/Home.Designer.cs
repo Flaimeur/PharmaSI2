@@ -78,7 +78,7 @@ namespace PharmaSISuperTest
             // praticien
             // 
             this.praticien.Name = "praticien";
-            this.praticien.Size = new System.Drawing.Size(140, 26);
+            this.praticien.Size = new System.Drawing.Size(180, 26);
             this.praticien.Text = "Praticien";
             this.praticien.Click += new System.EventHandler(this.praticien_Click);
             // 
@@ -114,6 +114,7 @@ namespace PharmaSISuperTest
             this.voircompterendu.Name = "voircompterendu";
             this.voircompterendu.Size = new System.Drawing.Size(221, 26);
             this.voircompterendu.Text = "Voir compte-rendu";
+            this.voircompterendu.Click += new System.EventHandler(this.voircompterendu_Click);
             // 
             // deconexion
             // 

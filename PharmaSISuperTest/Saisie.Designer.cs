@@ -31,10 +31,12 @@ namespace PharmaSISuperTest
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Saisie));
             this.produit = new System.Windows.Forms.MenuStrip();
-            this.Back = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonRetour = new System.Windows.Forms.ToolStripMenuItem();
             this.consultation = new System.Windows.Forms.ToolStripMenuItem();
             this.praticien = new System.Windows.Forms.ToolStripMenuItem();
             this.produitt = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.voircompterendu = new System.Windows.Forms.ToolStripMenuItem();
             this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
             this.labelPraticien = new System.Windows.Forms.Label();
             this.comboBoxPraticien = new System.Windows.Forms.ComboBox();
@@ -42,7 +44,6 @@ namespace PharmaSISuperTest
             this.textBoxRapport = new System.Windows.Forms.TextBox();
             this.textBoxDuree = new System.Windows.Forms.TextBox();
             this.buttonSauvegarder = new System.Windows.Forms.Button();
-            this.buttonRetour = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,9 +61,10 @@ namespace PharmaSISuperTest
             this.produit.GripMargin = new System.Windows.Forms.Padding(2);
             this.produit.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.produit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Back,
+            this.buttonRetour,
             this.consultation,
             this.produitt,
+            this.toolStripMenuItem1,
             this.deconexion});
             this.produit.Location = new System.Drawing.Point(0, 0);
             this.produit.Name = "produit";
@@ -72,13 +74,14 @@ namespace PharmaSISuperTest
             this.produit.TabIndex = 40;
             this.produit.Text = "menuStrip2";
             // 
-            // Back
+            // buttonRetour
             // 
-            this.Back.ForeColor = System.Drawing.Color.White;
-            this.Back.Image = global::PharmaSISuperTest.Properties.Resources.back;
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(78, 28);
-            this.Back.Text = "Back";
+            this.buttonRetour.ForeColor = System.Drawing.Color.White;
+            this.buttonRetour.Image = global::PharmaSISuperTest.Properties.Resources.back;
+            this.buttonRetour.Name = "buttonRetour";
+            this.buttonRetour.Size = new System.Drawing.Size(78, 28);
+            this.buttonRetour.Text = "Back";
+            this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click_1);
             // 
             // consultation
             // 
@@ -89,12 +92,14 @@ namespace PharmaSISuperTest
             this.consultation.Name = "consultation";
             this.consultation.Size = new System.Drawing.Size(134, 28);
             this.consultation.Text = "Consultation";
+            this.consultation.Click += new System.EventHandler(this.consultation_Click);
             // 
             // praticien
             // 
             this.praticien.Name = "praticien";
             this.praticien.Size = new System.Drawing.Size(140, 26);
             this.praticien.Text = "Praticien";
+            this.praticien.Click += new System.EventHandler(this.praticien_Click);
             // 
             // produitt
             // 
@@ -103,6 +108,24 @@ namespace PharmaSISuperTest
             this.produitt.Name = "produitt";
             this.produitt.Size = new System.Drawing.Size(97, 28);
             this.produitt.Text = "Produit";
+            this.produitt.Click += new System.EventHandler(this.produitt_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.voircompterendu});
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem1.Image = global::PharmaSISuperTest.Properties.Resources.Icon_10;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(86, 28);
+            this.toolStripMenuItem1.Text = "Saisie";
+            // 
+            // voircompterendu
+            // 
+            this.voircompterendu.Name = "voircompterendu";
+            this.voircompterendu.Size = new System.Drawing.Size(211, 26);
+            this.voircompterendu.Text = "Voir compte-rendu";
+            this.voircompterendu.Click += new System.EventHandler(this.voircompterendu_Click);
             // 
             // deconexion
             // 
@@ -111,6 +134,7 @@ namespace PharmaSISuperTest
             this.deconexion.Name = "deconexion";
             this.deconexion.Size = new System.Drawing.Size(136, 28);
             this.deconexion.Text = "Déconnexion";
+            this.deconexion.Click += new System.EventHandler(this.deconexion_Click);
             // 
             // labelPraticien
             // 
@@ -160,23 +184,13 @@ namespace PharmaSISuperTest
             // 
             // buttonSauvegarder
             // 
-            this.buttonSauvegarder.Location = new System.Drawing.Point(341, 633);
+            this.buttonSauvegarder.Location = new System.Drawing.Point(500, 633);
             this.buttonSauvegarder.Name = "buttonSauvegarder";
             this.buttonSauvegarder.Size = new System.Drawing.Size(283, 23);
             this.buttonSauvegarder.TabIndex = 49;
             this.buttonSauvegarder.Text = "Sauvegarder";
             this.buttonSauvegarder.UseVisualStyleBackColor = true;
             this.buttonSauvegarder.Click += new System.EventHandler(this.buttonSauvegarder_Click);
-            // 
-            // buttonRetour
-            // 
-            this.buttonRetour.Location = new System.Drawing.Point(658, 633);
-            this.buttonRetour.Name = "buttonRetour";
-            this.buttonRetour.Size = new System.Drawing.Size(283, 23);
-            this.buttonRetour.TabIndex = 50;
-            this.buttonRetour.Text = "Retour";
-            this.buttonRetour.UseVisualStyleBackColor = true;
-            this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click_1);
             // 
             // pictureBox2
             // 
@@ -247,7 +261,6 @@ namespace PharmaSISuperTest
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.buttonSauvegarder);
             this.Controls.Add(this.textBoxDuree);
             this.Controls.Add(this.textBoxRapport);
@@ -272,7 +285,7 @@ namespace PharmaSISuperTest
 
         #endregion
         private System.Windows.Forms.MenuStrip produit;
-        private System.Windows.Forms.ToolStripMenuItem Back;
+        private System.Windows.Forms.ToolStripMenuItem buttonRetour;
         private System.Windows.Forms.ToolStripMenuItem consultation;
         private System.Windows.Forms.ToolStripMenuItem praticien;
         private System.Windows.Forms.ToolStripMenuItem produitt;
@@ -283,11 +296,12 @@ namespace PharmaSISuperTest
         private System.Windows.Forms.TextBox textBoxRapport;
         private System.Windows.Forms.TextBox textBoxDuree;
         private System.Windows.Forms.Button buttonSauvegarder;
-        private System.Windows.Forms.Button buttonRetour;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem voircompterendu;
     }
 }

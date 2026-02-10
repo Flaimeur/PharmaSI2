@@ -6,30 +6,40 @@ using PharmaSISuperTest.Services;
 
 namespace PharmaSISuperTest
 {
-    public partial class Produit : Form
+    public partial class ViewVisites : Form
     {
-        private ProductService productService;
+        private VisiteService visiteService;
         private Employee currentEmployee;
 
-        public Produit()
+        public ViewVisites(Employee employee)
         {
             InitializeComponent();
-            productService = new ProductService();
+            visiteService = new VisiteService();
+            currentEmployee = employee;
         }
 
-        private void Produit_Load(object sender, EventArgs e)
+        private void ViewVisites_Load(object sender, EventArgs e)
         {
-            LoadProducts();
+            LoadVisites();
         }
 
-        private void LoadProducts()
+        private void LoadVisites()
         {
             try
             {
-                var products = productService.GetAllProduct();
-                dataGridViewProduct.AutoGenerateColumns = true;
-                dataGridViewProduct.DataSource = products;
-                dataGridViewProduct.ReadOnly = true;
+                var visites = visiteService.GetAllVisites();
+
+                // Filtre selon le rôle
+                if (currentEmployee.IdPoste == 1)
+                {  // Visiteur
+                   // Voir uniquement ses propres visites
+                    visites = visites.FindAll(v => v.EmployePrenom == currentEmployee.Prenom && v.EmployeNom == currentEmployee.Nom);
+                }
+                // Sinon (Responsable=2, Délégué=3) : voir tout
+
+                dataGridViewVisites.AutoGenerateColumns = true;
+                dataGridViewVisites.DataSource = visites;
+                dataGridViewVisites.ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -50,7 +60,27 @@ namespace PharmaSISuperTest
             this.Close();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void creecompterendu_Click(object sender, EventArgs e)
+        {
+            Saisie saisie = new Saisie(currentEmployee);
+            saisie.Show();
+            this.Hide();
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Form[] openForms = Application.OpenForms.OfType<Form>().ToArray();
+            Home homeForm = openForms.OfType<Home>().FirstOrDefault();
+
+            if (homeForm != null)
+            {
+                homeForm.Show();
+            }
+
+            this.Close();
+        }
+
+        private void consultation_Click(object sender, EventArgs e)
         {
 
         }
@@ -62,17 +92,10 @@ namespace PharmaSISuperTest
             this.Hide();
         }
 
-        private void creecompterendu_Click(object sender, EventArgs e)
+        private void produitt_Click(object sender, EventArgs e)
         {
-            Saisie saisie = new Saisie(currentEmployee);
-            saisie.Show();
-            this.Hide();
-        }
-
-        private void voircompterendu_Click(object sender, EventArgs e)
-        {
-            ViewVisites viewVisites = new ViewVisites(currentEmployee);
-            viewVisites.Show();
+            Produit Produit = new Produit();
+            Produit.Show();
             this.Hide();
         }
 

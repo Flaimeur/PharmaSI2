@@ -151,6 +151,12 @@
     <Compile Include="Services\PraticienService.cs" />
     <Compile Include="Models\Visite.cs" />
     <Compile Include="Services\VisiteService.cs" />
+    <Compile Include="ViewVisites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewVisites.Designer.cs">
+      <DependentUpon>ViewVisites.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Consultation.resx">
       <DependentUpon>Consultation.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +181,9 @@
     </Compile>
     <EmbeddedResource Include="Saisie.resx">
       <DependentUpon>Saisie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewVisites.resx">
+      <DependentUpon>ViewVisites.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

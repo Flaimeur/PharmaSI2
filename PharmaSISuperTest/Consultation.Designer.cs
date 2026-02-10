@@ -104,18 +104,21 @@ namespace PharmaSISuperTest
             this.saisie.Name = "saisie";
             this.saisie.Size = new System.Drawing.Size(86, 28);
             this.saisie.Text = "Saisie";
+            this.saisie.Click += new System.EventHandler(this.saisie_Click);
             // 
             // creecompterendu
             // 
             this.creecompterendu.Name = "creecompterendu";
             this.creecompterendu.Size = new System.Drawing.Size(221, 26);
             this.creecompterendu.Text = "Créer compte-rendu";
+            this.creecompterendu.Click += new System.EventHandler(this.creecompterendu_Click);
             // 
             // voircompterendu
             // 
             this.voircompterendu.Name = "voircompterendu";
             this.voircompterendu.Size = new System.Drawing.Size(221, 26);
             this.voircompterendu.Text = "Voir compte-rendu";
+            this.voircompterendu.Click += new System.EventHandler(this.voircompterendu_Click);
             // 
             // deconexion
             // 
