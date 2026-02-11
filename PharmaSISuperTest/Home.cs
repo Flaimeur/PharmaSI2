@@ -139,7 +139,7 @@ namespace PharmaSISuperTest
 
         private void praticien_Click(object sender, EventArgs e)
         {
-            Consultation consultation = new Consultation();
+            Consultation consultation = new Consultation(currentEmployee);
             consultation.Show();
             this.Hide();
         }

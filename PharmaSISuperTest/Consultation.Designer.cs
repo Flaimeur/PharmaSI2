@@ -40,6 +40,7 @@ namespace PharmaSISuperTest
             this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.Load += new System.EventHandler(this.Consultation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).BeginInit();
             this.produit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -83,7 +84,6 @@ namespace PharmaSISuperTest
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(78, 28);
             this.Back.Text = "Back";
-            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // produitt
             // 
@@ -104,7 +104,6 @@ namespace PharmaSISuperTest
             this.saisie.Name = "saisie";
             this.saisie.Size = new System.Drawing.Size(86, 28);
             this.saisie.Text = "Saisie";
-            this.saisie.Click += new System.EventHandler(this.saisie_Click);
             // 
             // creecompterendu
             // 

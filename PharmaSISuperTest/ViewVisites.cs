@@ -29,13 +29,10 @@ namespace PharmaSISuperTest
             {
                 var visites = visiteService.GetAllVisites();
 
-                // Filtre selon le rôle
                 if (currentEmployee.IdPoste == 1)
                 {  // Visiteur
-                   // Voir uniquement ses propres visites
                     visites = visites.FindAll(v => v.EmployePrenom == currentEmployee.Prenom && v.EmployeNom == currentEmployee.Nom);
                 }
-                // Sinon (Responsable=2, Délégué=3) : voir tout
 
                 dataGridViewVisites.AutoGenerateColumns = true;
                 dataGridViewVisites.DataSource = visites;
@@ -87,7 +84,7 @@ namespace PharmaSISuperTest
 
         private void praticien_Click(object sender, EventArgs e)
         {
-            Consultation consultation = new Consultation();
+            Consultation consultation = new Consultation(currentEmployee);
             consultation.Show();
             this.Hide();
         }

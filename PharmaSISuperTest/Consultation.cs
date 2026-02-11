@@ -11,15 +11,16 @@ namespace PharmaSISuperTest
 
         private Employee currentEmployee;
         private PraticienService praticienService;
-
-        public Consultation()
-        {
+        public Consultation(Employee employee)
+        {  
             InitializeComponent();
             praticienService = new PraticienService();
+            currentEmployee = employee;  
         }
 
         private void Consultation_Load(object sender, EventArgs e)
         {
+            MessageBox.Show($"Consultation_Load appelé !\nemployee: {currentEmployee?.Prenom ?? "NULL"}", "DEBUG");
             LoadPraticiens();
         }
 
@@ -28,10 +29,15 @@ namespace PharmaSISuperTest
             try
             {
                 var praticiens = praticienService.GetAllPraticiens();
+                if (praticiens == null || praticiens.Count == 0)
+                {
+                    return;
+                }
 
                 dataGridViewPraticiens.AutoGenerateColumns = true;
                 dataGridViewPraticiens.DataSource = praticiens;
                 dataGridViewPraticiens.ReadOnly = true;
+
             }
             catch (Exception ex)
             {
