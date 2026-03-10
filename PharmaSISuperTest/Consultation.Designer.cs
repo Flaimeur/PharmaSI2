@@ -30,7 +30,6 @@ namespace PharmaSISuperTest
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultation));
-            this.dataGridViewPraticiens = new System.Windows.Forms.DataGridView();
             this.produit = new System.Windows.Forms.MenuStrip();
             this.Back = new System.Windows.Forms.ToolStripMenuItem();
             this.produitt = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,23 +39,12 @@ namespace PharmaSISuperTest
             this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.Load += new System.EventHandler(this.Consultation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).BeginInit();
+            this.dataGridViewPraticiens = new System.Windows.Forms.DataGridView();
             this.produit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewPraticiens
-            // 
-            this.dataGridViewPraticiens.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.dataGridViewPraticiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPraticiens.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.dataGridViewPraticiens.Location = new System.Drawing.Point(122, 202);
-            this.dataGridViewPraticiens.Name = "dataGridViewPraticiens";
-            this.dataGridViewPraticiens.RowHeadersWidth = 62;
-            this.dataGridViewPraticiens.Size = new System.Drawing.Size(1040, 515);
-            this.dataGridViewPraticiens.TabIndex = 0;
             // 
             // produit
             // 
@@ -152,32 +140,41 @@ namespace PharmaSISuperTest
             this.pictureBox9.TabIndex = 21;
             this.pictureBox9.TabStop = false;
             // 
+            // dataGridViewPraticiens
+            // 
+            this.dataGridViewPraticiens.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.dataGridViewPraticiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPraticiens.Location = new System.Drawing.Point(185, 252);
+            this.dataGridViewPraticiens.Name = "dataGridViewPraticiens";
+            this.dataGridViewPraticiens.Size = new System.Drawing.Size(944, 388);
+            this.dataGridViewPraticiens.TabIndex = 42;
+            this.dataGridViewPraticiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPraticiens_CellContentClick);
+            // 
             // Consultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1283, 760);
+            this.Controls.Add(this.dataGridViewPraticiens);
             this.Controls.Add(this.produit);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dataGridViewPraticiens);
             this.Controls.Add(this.pictureBox9);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consultation";
             this.Text = "Consultation";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).EndInit();
+            this.Load += new System.EventHandler(this.Consultation_Load);
             this.produit.ResumeLayout(false);
             this.produit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewPraticiens;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MenuStrip produit;
@@ -187,5 +184,6 @@ namespace PharmaSISuperTest
         private System.Windows.Forms.ToolStripMenuItem voircompterendu;
         private System.Windows.Forms.ToolStripMenuItem deconexion;
         private System.Windows.Forms.ToolStripMenuItem Back;
+        private System.Windows.Forms.DataGridView dataGridViewPraticiens;
     }
 }

@@ -88,7 +88,15 @@ namespace PharmaSISuperTest
 
         private void afficherMenusResponsable()
         {
-            // Consultation, Produit
+            consultation.Visible = true;
+            produit.Visible = true;
+            saisie.Visible = true;
+
+            // ❌ Le responsable NE PEUT PAS créer de compte-rendu
+            creecompterendu.Visible = false;
+
+            // ✅ Mais il peut les voir
+            voircompterendu.Visible = true;
         }
 
         private void afficherMenusDelegue()

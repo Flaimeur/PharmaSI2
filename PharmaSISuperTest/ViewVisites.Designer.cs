@@ -38,11 +38,13 @@ namespace PharmaSISuperTest
             this.saisie = new System.Windows.Forms.ToolStripMenuItem();
             this.creecompterendu = new System.Windows.Forms.ToolStripMenuItem();
             this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewVisites = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.labelPraticien = new System.Windows.Forms.Label();
+            this.cbRapports = new System.Windows.Forms.ComboBox();
+            this.btnAfficher = new System.Windows.Forms.Button();
+            this.txtDetails = new System.Windows.Forms.RichTextBox();
             this.produit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisites)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
@@ -129,15 +131,6 @@ namespace PharmaSISuperTest
             this.deconexion.Text = "Déconnexion";
             this.deconexion.Click += new System.EventHandler(this.deconexion_Click);
             // 
-            // dataGridViewVisites
-            // 
-            this.dataGridViewVisites.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.dataGridViewVisites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVisites.Location = new System.Drawing.Point(169, 241);
-            this.dataGridViewVisites.Name = "dataGridViewVisites";
-            this.dataGridViewVisites.Size = new System.Drawing.Size(944, 388);
-            this.dataGridViewVisites.TabIndex = 41;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -162,13 +155,54 @@ namespace PharmaSISuperTest
             this.pictureBox9.TabIndex = 53;
             this.pictureBox9.TabStop = false;
             // 
+            // labelPraticien
+            // 
+            this.labelPraticien.AutoSize = true;
+            this.labelPraticien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
+            this.labelPraticien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPraticien.ForeColor = System.Drawing.Color.White;
+            this.labelPraticien.Location = new System.Drawing.Point(79, 222);
+            this.labelPraticien.Name = "labelPraticien";
+            this.labelPraticien.Size = new System.Drawing.Size(369, 25);
+            this.labelPraticien.TabIndex = 55;
+            this.labelPraticien.Text = "Sélectionner un rapport de visite :";
+            // 
+            // cbRapports
+            // 
+            this.cbRapports.FormattingEnabled = true;
+            this.cbRapports.Location = new System.Drawing.Point(468, 226);
+            this.cbRapports.Name = "cbRapports";
+            this.cbRapports.Size = new System.Drawing.Size(199, 21);
+            this.cbRapports.TabIndex = 56;
+            // 
+            // btnAfficher
+            // 
+            this.btnAfficher.Location = new System.Drawing.Point(689, 228);
+            this.btnAfficher.Name = "btnAfficher";
+            this.btnAfficher.Size = new System.Drawing.Size(105, 19);
+            this.btnAfficher.TabIndex = 57;
+            this.btnAfficher.Text = "Afficher";
+            this.btnAfficher.UseVisualStyleBackColor = true;
+            this.btnAfficher.Click += new System.EventHandler(this.btnAfficher_Click);
+            // 
+            // txtDetails
+            // 
+            this.txtDetails.Location = new System.Drawing.Point(84, 265);
+            this.txtDetails.Name = "txtDetails";
+            this.txtDetails.Size = new System.Drawing.Size(1126, 434);
+            this.txtDetails.TabIndex = 58;
+            this.txtDetails.Text = "";
+            // 
             // ViewVisites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1283, 760);
-            this.Controls.Add(this.dataGridViewVisites);
+            this.Controls.Add(this.txtDetails);
+            this.Controls.Add(this.btnAfficher);
+            this.Controls.Add(this.cbRapports);
+            this.Controls.Add(this.labelPraticien);
             this.Controls.Add(this.produit);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
@@ -178,7 +212,6 @@ namespace PharmaSISuperTest
             this.Load += new System.EventHandler(this.ViewVisites_Load);
             this.produit.ResumeLayout(false);
             this.produit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVisites)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
@@ -195,9 +228,12 @@ namespace PharmaSISuperTest
         private System.Windows.Forms.ToolStripMenuItem saisie;
         private System.Windows.Forms.ToolStripMenuItem creecompterendu;
         private System.Windows.Forms.ToolStripMenuItem deconexion;
-        private System.Windows.Forms.DataGridView dataGridViewVisites;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.ToolStripMenuItem Back;
+        private System.Windows.Forms.Label labelPraticien;
+        private System.Windows.Forms.ComboBox cbRapports;
+        private System.Windows.Forms.Button btnAfficher;
+        private System.Windows.Forms.RichTextBox txtDetails;
     }
 }

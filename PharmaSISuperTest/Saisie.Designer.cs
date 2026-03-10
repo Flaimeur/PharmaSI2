@@ -49,9 +49,13 @@ namespace PharmaSISuperTest
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbProduits = new System.Windows.Forms.ComboBox();
+            this.nudQuantite = new System.Windows.Forms.NumericUpDown();
             this.produit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantite)).BeginInit();
             this.SuspendLayout();
             // 
             // produit
@@ -167,7 +171,7 @@ namespace PharmaSISuperTest
             // textBoxRapport
             // 
             this.textBoxRapport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBoxRapport.Location = new System.Drawing.Point(455, 482);
+            this.textBoxRapport.Location = new System.Drawing.Point(455, 522);
             this.textBoxRapport.Multiline = true;
             this.textBoxRapport.Name = "textBoxRapport";
             this.textBoxRapport.Size = new System.Drawing.Size(372, 119);
@@ -184,7 +188,7 @@ namespace PharmaSISuperTest
             // 
             // buttonSauvegarder
             // 
-            this.buttonSauvegarder.Location = new System.Drawing.Point(500, 633);
+            this.buttonSauvegarder.Location = new System.Drawing.Point(500, 673);
             this.buttonSauvegarder.Name = "buttonSauvegarder";
             this.buttonSauvegarder.Size = new System.Drawing.Size(283, 23);
             this.buttonSauvegarder.TabIndex = 49;
@@ -234,7 +238,7 @@ namespace PharmaSISuperTest
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(455, 454);
+            this.label2.Location = new System.Drawing.Point(455, 494);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 54;
@@ -252,12 +256,43 @@ namespace PharmaSISuperTest
             this.label3.TabIndex = 55;
             this.label3.Text = "Heure :";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(455, 433);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(143, 25);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Echantillon :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // cbProduits
+            // 
+            this.cbProduits.FormattingEnabled = true;
+            this.cbProduits.Location = new System.Drawing.Point(455, 466);
+            this.cbProduits.Name = "cbProduits";
+            this.cbProduits.Size = new System.Drawing.Size(181, 21);
+            this.cbProduits.TabIndex = 57;
+            // 
+            // nudQuantite
+            // 
+            this.nudQuantite.Location = new System.Drawing.Point(663, 467);
+            this.nudQuantite.Name = "nudQuantite";
+            this.nudQuantite.Size = new System.Drawing.Size(164, 20);
+            this.nudQuantite.TabIndex = 58;
+            // 
             // Saisie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1283, 760);
+            this.Controls.Add(this.nudQuantite);
+            this.Controls.Add(this.cbProduits);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -278,6 +313,7 @@ namespace PharmaSISuperTest
             this.produit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +339,8 @@ namespace PharmaSISuperTest
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem voircompterendu;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbProduits;
+        private System.Windows.Forms.NumericUpDown nudQuantite;
     }
 }

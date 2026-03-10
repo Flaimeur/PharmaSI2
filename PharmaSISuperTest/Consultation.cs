@@ -127,5 +127,10 @@ namespace PharmaSISuperTest
         {
 
         }
+
+        private void dataGridViewPraticiens_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,6 +21,24 @@ namespace PharmaSISuperTest
         private void Saisie_Load(object sender, EventArgs e)
         {
             LoadPraticiens();
+            LoadProduits();
+        }
+
+        private void LoadProduits()
+        {
+            try
+            {
+                ProductService productService = new ProductService();
+                var produits = productService.GetAllProduct(); // Récupère la liste depuis votre service
+
+                cbProduits.DataSource = produits;
+                cbProduits.DisplayMember = "NumeroDuProduit"; // Ce qui est affiché dans la liste
+                cbProduits.ValueMember = "IdProduit";         // La valeur technique utilisée pour la BDD
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur chargement produits : {ex.Message}");
+            }
         }
 
         private void LoadPraticiens()
@@ -44,17 +62,19 @@ namespace PharmaSISuperTest
         {
             try
             {
+                // 1. Validation du rapport
                 if (string.IsNullOrWhiteSpace(textBoxRapport.Text))
                 {
                     MessageBox.Show("Le rapport est obligatoire.", "Validation");
                     return;
                 }
 
+                // 2. Récupération du Praticien
                 dynamic selectedPraticien = comboBoxPraticien.SelectedItem as dynamic;
                 int idPraticien = selectedPraticien.IdPraticien ?? 1;
 
+                // 3. Calcul de la durée
                 int dureeMinutes = 0;
-
                 if (!string.IsNullOrWhiteSpace(textBoxDuree.Text))
                 {
                     string[] parts = textBoxDuree.Text.Split(':');
@@ -64,22 +84,45 @@ namespace PharmaSISuperTest
                     }
                 }
 
+                // --- NOUVEAU : Récupération de l'échantillon ---
+                int? idProduitChoisi = null;
+                int quantiteChoisie = 0;
+
+                // On vérifie si un produit est sélectionné dans la liste cbProduits
+                if (cbProduits.SelectedValue != null)
+                {
+                    idProduitChoisi = Convert.ToInt32(cbProduits.SelectedValue);
+                    // On récupère la valeur du NumericUpDown (nudQuantite)
+                    quantiteChoisie = (int)nudQuantite.Value;
+                }
+
+                // 4. Création de l'objet Visite avec les nouvelles colonnes
                 Visite visite = new Visite
                 {
                     IdEmploye = currentEmployee.IdEmploye,
                     IdPraticien = idPraticien,
                     DateVisite = dateTimePickerVisite.Value,
                     Rapport = textBoxRapport.Text,
-                    DureeVisite = dureeMinutes > 0 ? dureeMinutes : (int?)null
+                    DureeVisite = dureeMinutes > 0 ? dureeMinutes : (int?)null,
+
+                    // On ajoute les infos d'échantillon ici
+                    IdProduit = idProduitChoisi,
+                    QuantiteEchantillon = quantiteChoisie > 0 ? quantiteChoisie : (int?)null
                 };
 
+                // 5. Sauvegarde
                 if (visiteService.SaveVisite(visite))
                 {
-                    MessageBox.Show("Visite sauvegardée avec succès !", "Succès");
+                    MessageBox.Show("Visite et échantillon sauvegardés avec succès !", "Succès");
+
+                    // Nettoyage des champs
                     textBoxRapport.Clear();
                     textBoxDuree.Clear();
+                    nudQuantite.Value = 0;
+                    cbProduits.SelectedIndex = -1; // Remet la liste à zéro
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur : {ex.Message}", "Erreur");
@@ -160,6 +203,11 @@ namespace PharmaSISuperTest
             }
 
             this.Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

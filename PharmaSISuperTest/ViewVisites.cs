@@ -20,27 +20,78 @@ namespace PharmaSISuperTest
 
         private void ViewVisites_Load(object sender, EventArgs e)
         {
-            LoadVisites();
+            LoadRapportsPourListe();
         }
 
-        private void LoadVisites()
+        private void LoadRapportsPourListe()
         {
             try
             {
-                var visites = visiteService.GetAllVisites();
+                var allVisites = visiteService.GetAllVisites();
 
-                if (currentEmployee.IdPoste == 1)
-                {  // Visiteur
-                    visites = visites.FindAll(v => v.EmployePrenom == currentEmployee.Prenom && v.EmployeNom == currentEmployee.Nom);
+                // Filtrage selon le Rôle
+                var visitesAffichees = allVisites;
+                if (currentEmployee.IdPoste == 1) // Visiteur
+                {
+                    visitesAffichees = allVisites.Where(v => v.EmployeNom == currentEmployee.Nom && v.EmployePrenom == currentEmployee.Prenom).ToList();
                 }
 
-                dataGridViewVisites.AutoGenerateColumns = true;
-                dataGridViewVisites.DataSource = visites;
-                dataGridViewVisites.ReadOnly = true;
+                // Formatage pour la liste déroulante
+                var displayList = visitesAffichees.Select(v => new
+                {
+                    Id = v.IdVisite,
+                    TexteAffiche = $"Rapport n°{(v.NumeroVisiteEmploye?.ToString() ?? "?")} - Dr. {v.PraticienNom} ({v.DateVisite:dd/MM/yyyy})"
+                }).ToList();
+
+                // Injection dans la liste déroulante (ComboBox)
+                cbRapports.DataSource = displayList;
+                cbRapports.DisplayMember = "TexteAffiche";
+                cbRapports.ValueMember = "Id";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur : {ex.Message}", "Erreur");
+                MessageBox.Show($"Erreur au chargement : {ex.Message}", "Erreur");
+            }
+        }
+
+        // --- BOUTON POUR AFFICHER LES DÉTAILS DANS LE GRAND CARRÉ ---
+        private void btnAfficher_Click(object sender, EventArgs e)
+        {
+            if (cbRapports.SelectedValue == null) return;
+
+            int selectedId = (int)cbRapports.SelectedValue;
+            var visite = visiteService.GetAllVisites().FirstOrDefault(v => v.IdVisite == selectedId);
+
+            if (visite != null)
+            {
+                string grandTexte = "=== DÉTAILS DU COMPTE-RENDU ===\n\n";
+
+                // Auteur (Caché si c'est l'utilisateur lui-même)
+                bool estAuteur = (visite.EmployePrenom == currentEmployee.Prenom && visite.EmployeNom == currentEmployee.Nom);
+                if (!estAuteur)
+                {
+                    grandTexte += $"Auteur : {visite.EmployePrenom} {visite.EmployeNom}\n";
+                }
+
+                grandTexte += $"Date de visite : {visite.DateVisite:dd/MM/yyyy}\n";
+                grandTexte += $"Praticien : Dr. {visite.PraticienPrenom} {visite.PraticienNom}\n";
+                grandTexte += $"Durée : {(visite.DureeVisite > 0 ? visite.DureeVisite.ToString() + " min" : "Non précisée")}\n\n";
+
+                grandTexte += "--- BILAN DE LA VISITE ---\n";
+                grandTexte += $"{visite.Rapport}\n\n";
+
+                grandTexte += "--- ÉCHANTILLON OFFERT ---\n";
+                if (visite.IdProduit != null)
+                {
+                    grandTexte += $"Produit Numéro {visite.IdProduit} - Quantité : {visite.QuantiteEchantillon}\n";
+                }
+                else
+                {
+                    grandTexte += "Aucun échantillon n'a été offert.\n";
+                }
+
+                // On affiche tout le texte
+                txtDetails.Text = grandTexte;
             }
         }
 
@@ -121,5 +172,6 @@ namespace PharmaSISuperTest
                 login.Show();
             }
         }
+
     }
 }
