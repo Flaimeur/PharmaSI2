@@ -18,5 +18,9 @@ namespace PharmaSISuperTest.Models
 
         public virtual Employee Employee { get; set; }
         public virtual Praticien Praticien { get; set; }
+
+        public int? NumeroVisiteEmploye { get; set; }
+        public int? IdProduit { get; set; }
+        public int? QuantiteEchantillon { get; set; }
     }
 }

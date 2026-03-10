@@ -19,8 +19,24 @@ namespace PharmaSISuperTest.Services
                     conn.Open();
 
                     string query = @"
-                        INSERT INTO visite (id_employe, idPraticien, dateVisite, rapport, duree_visite)
-                        VALUES (@idEmploye, @idPraticien, @dateVisite, @rapport, @dureeVisite)
+                    INSERT INTO visite (
+                    id_employe, 
+                    idPraticien, 
+                    dateVisite, 
+                    rapport, 
+                    duree_visite, 
+                    idProduit, 
+                    quantite_echantillon
+                    ) 
+                    VALUES (
+                    @idEmploye, 
+                    @idPraticien, 
+                    @dateVisite, 
+                    @rapport, 
+                    @dureeVisite, 
+                    @idProd, 
+                    @qte
+                    )
                     ";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -30,6 +46,10 @@ namespace PharmaSISuperTest.Services
                         cmd.Parameters.AddWithValue("@dateVisite", visite.DateVisite);
                         cmd.Parameters.AddWithValue("@rapport", visite.Rapport);
                         cmd.Parameters.AddWithValue("@dureeVisite", visite.DureeVisite ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@idProduit", visite.IdProduit ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@quantiteEchantillon", visite.QuantiteEchantillon ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@idProd", visite.IdProduit ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@qte", visite.QuantiteEchantillon ?? (object)DBNull.Value);
 
                         cmd.ExecuteNonQuery();
                         return true;
@@ -55,6 +75,7 @@ namespace PharmaSISuperTest.Services
                     string query = @"
                         SELECT 
                             v.idVisite,
+                            v.numero_visite_employe,
                             e.prenom as employe_prenom,
                             e.nom as employe_nom,
                             p.prenom as praticien_prenom,
@@ -62,7 +83,9 @@ namespace PharmaSISuperTest.Services
                             v.dateVisite,
                             v.rapport,
                             v.duree_visite,
-                            v.date_creation
+                            v.date_creation,
+                            v.idProduit,
+                            v.quantite_echantillon
                         FROM visite v
                         LEFT JOIN employe e ON v.id_employe = e.id_employe
                         LEFT JOIN praticien p ON v.idPraticien = p.idPraticien
@@ -85,7 +108,10 @@ namespace PharmaSISuperTest.Services
                                     DateVisite = Convert.ToDateTime(reader["dateVisite"]),
                                     Rapport = reader["rapport"].ToString(),
                                     DureeVisite = reader["duree_visite"] != DBNull.Value ? Convert.ToInt32(reader["duree_visite"]) : 0,
-                                    DateCreation = Convert.ToDateTime(reader["date_creation"])
+                                    DateCreation = Convert.ToDateTime(reader["date_creation"]),
+                                    NumeroVisiteEmploye = reader["numero_visite_employe"] != DBNull.Value ? Convert.ToInt32(reader["numero_visite_employe"]) : (int?)null,
+                                    IdProduit = reader["idProduit"] != DBNull.Value ? Convert.ToInt32(reader["idProduit"]) : (int?)null,
+                                    QuantiteEchantillon = reader["quantite_echantillon"] != DBNull.Value ? Convert.ToInt32(reader["quantite_echantillon"]) : (int?)null
                                 });
                             }
                         }

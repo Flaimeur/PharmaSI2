@@ -21,7 +21,7 @@ namespace PharmaSISuperTest.Services
                     conn.Open();
 
                     string query = @"
-                SELECT 
+                    SELECT DISTINCT
                     p.IdProduit,
                     p.NumeroDuProduit,
                     p.PrixEchantillon,
@@ -52,7 +52,8 @@ namespace PharmaSISuperTest.Services
                                     ContreIndications = reader["Contre_indications"].ToString(),
                                     Interactions = reader["Interactions"].ToString(),
                                     Famille = reader["Famille"] != DBNull.Value ? reader["Famille"].ToString() : "",
-                                    Composant = reader["Composant"] != DBNull.Value ? reader["Composant"].ToString() : ""
+                                    Composant = reader["Composant"] != DBNull.Value ? reader["Composant"].ToString() : "",
+                                    IdProduit = Convert.ToInt32(reader["IdProduit"]),
                                 });
                             }
                         }
