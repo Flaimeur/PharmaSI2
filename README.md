@@ -45,22 +45,72 @@ PharmaSISuperTest/
 
 ## 🗄️ Base de données
 
-### Schéma relationnel simplifié
+### Schéma Relationnel (ERD)
 
+```mermaid
+erDiagram
+    EMPLOYE ||--o{ VISITE : "enregistre"
+    PRATICIEN ||--o{ VISITE : "reçoit"
+    PRODUIT ||--o{ VISITE : "présenté_comme_échantillon"
+    POSTE ||--o{ EMPLOYE : "définit"
+    
+    PRODUIT ||--o{ COMPOSER : "contient"
+    COMPOSANT ||--o{ COMPOSER : "est_dans"
+    
+    PRODUIT ||--o{ APPARTENIR : "est_dans"
+    FAMILLE ||--o{ APPARTENIR : "regroupe"
+    
+    PRATICIEN ||--o{ PRATICIEN_TYPE : "a"
+    TYPE_PRATICIENT ||--o{ PRATICIEN_TYPE : "définit"
+    
+    PRATICIEN ||--o{ POSSEDER : "détient"
+    DIPLOME ||--o{ POSSEDER : "est_obtenu"
+    SPECIALITE ||--o{ POSSEDER : "est_maîtrisée"
+
+    EMPLOYE {
+        int id_employe PK
+        string nom
+        string prenom
+        string mail
+        string mdp
+        int id_poste FK
+    }
+
+    VISITE {
+        int idVisite PK
+        int id_employe FK
+        int idPraticien FK
+        date dateVisite
+        string rapport
+        int idProduit FK
+    }
+
+    PRODUIT {
+        int IdProduit PK
+        string NumeroDuProduit
+        decimal PrixEchantillon
+    }
+
+    PRATICIEN {
+        int idPraticien PK
+        string nom
+        string prenom
+        string ville
+    }
 ```
-employe          visite            praticien
-─────────        ────────          ─────────
-id_employe (PK)  idVisite (PK)     idPraticien (PK)
-nom              id_employe (FK)   nom
-prenom           idPraticien (FK)  prenom
-mail             dateVisite        ville
-mdp (SHA256)     rapport
-id_poste (FK)    duree_visite      produit
-                 idProduit (FK)    ────────
-                 quantite          IdProduit (PK)
-                                   NumeroDuProduit
-                                   PrixEchantillon
-```
+
+### Détails du Schéma
+
+| Table | Description |
+|---|---|
+| `employe` | Utilisateurs de l'application (Visiteurs, Délégués, etc.) |
+| `visite` | Comptes-rendus des visites effectuées auprès des praticiens |
+| `praticien` | Médecins et spécialistes partenaires |
+| `produit` | Médicaments et échantillons du laboratoire |
+| `famille` | Catégories de produits (Antalgiques, etc.) |
+| `composant` | Substances actives contenues dans les produits |
+| `diplome` | Titres académiques détenus par les praticiens |
+| `specialite` | Domaines d'expertise des médecins |
 
 ---
 
