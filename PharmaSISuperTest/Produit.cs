@@ -1,105 +1,73 @@
-﻿using System;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using PharmaSISuperTest.Models;
-using PharmaSISuperTest.Services;
+using PharmaSISuperTest.Controllers;
 
 namespace PharmaSISuperTest
 {
     public partial class Produit : Form
     {
-        private ProductService productService;
-        private Employee currentEmployee;
+        private readonly ProductController _controller;
 
-        public Produit()
+        public Produit(Employee employee)
         {
             InitializeComponent();
-            productService = new ProductService();
+            _controller = new ProductController(this, employee);
         }
 
         private void Produit_Load(object sender, EventArgs e)
         {
-            LoadProducts();
-        }
-
-        private void LoadProducts()
-        {
-            try
-            {
-                var products = productService.GetAllProduct();
-                dataGridViewProduct.AutoGenerateColumns = true;
-                dataGridViewProduct.DataSource = products;
-                dataGridViewProduct.ReadOnly = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur : {ex.Message}", "Erreur");
-            }
+            _controller.LoadProducts();
         }
 
         private void buttonRetour_Click(object sender, EventArgs e)
         {
-            Form[] openForms = Application.OpenForms.OfType<Form>().ToArray();
-            Home homeForm = openForms.OfType<Home>().FirstOrDefault();
-
-            if (homeForm != null)
-            {
-                homeForm.Show();
-            }
-
-            this.Close();
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
+            _controller.GoBack();
         }
 
         private void praticien_Click(object sender, EventArgs e)
         {
-            Consultation consultation = new Consultation(currentEmployee);
-            consultation.Show();
-            this.Hide();
+            _controller.OpenConsultation();
         }
 
         private void creecompterendu_Click(object sender, EventArgs e)
         {
-            Saisie saisie = new Saisie(currentEmployee);
-            saisie.Show();
-            this.Hide();
+            _controller.OpenSaisie();
         }
 
         private void voircompterendu_Click(object sender, EventArgs e)
         {
-            ViewVisites viewVisites = new ViewVisites(currentEmployee);
-            viewVisites.Show();
-            this.Hide();
+            _controller.OpenViewVisites();
         }
 
         private void deconexion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Êtes-vous sûr de vouloir vous déconnecter ?",
-                "Déconnexion",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+            _controller.Logout();
+        }
 
-            if (result == DialogResult.Yes)
-            {
-                // Ferme TOUTES les fenêtres sauf Login
-                foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
-                {
-                    if (!(form is Login))
-                    {
-                        form.Close();
-                    }
-                }
+        // --- Methods called by the Controller ---
 
-                // Affiche Login
-                Login login = new Login();
-                login.Show();
-            }
+        public void DisplayProducts(List<Product> products)
+        {
+            dataGridViewProduct.AutoGenerateColumns = true;
+            dataGridViewProduct.DataSource = products;
+            dataGridViewProduct.ReadOnly = true;
+        }
+
+        public void ShowError(string message)
+        {
+            MessageBox.Show(message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void CloseView()
+        {
+            this.Close();
+        }
+
+        public void HideView()
+        {
+            this.Hide();
         }
     }
 }
