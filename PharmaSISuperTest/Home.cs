@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using System.Linq;
 using PharmaSISuperTest.Models;
@@ -154,7 +154,7 @@ namespace PharmaSISuperTest
 
         private void produitt_Click(object sender, EventArgs e)
         {
-            Produit Produit = new Produit();
+            Produit Produit = new Produit(currentEmployee);
             Produit.Show();
             this.Hide();
         }
