@@ -1,7 +1,7 @@
 ﻿
 namespace PharmaSISuperTest
 {
-    partial class Home
+    partial class Consultation
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,21 @@ namespace PharmaSISuperTest
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultation));
             this.produit = new System.Windows.Forms.MenuStrip();
-            this.consultation = new System.Windows.Forms.ToolStripMenuItem();
-            this.praticien = new System.Windows.Forms.ToolStripMenuItem();
+            this.Back = new System.Windows.Forms.ToolStripMenuItem();
             this.produitt = new System.Windows.Forms.ToolStripMenuItem();
             this.saisie = new System.Windows.Forms.ToolStripMenuItem();
             this.creecompterendu = new System.Windows.Forms.ToolStripMenuItem();
             this.voircompterendu = new System.Windows.Forms.ToolStripMenuItem();
             this.deconexion = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewPraticiens = new System.Windows.Forms.DataGridView();
             this.produit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).BeginInit();
             this.SuspendLayout();
             // 
             // produit
@@ -53,7 +53,7 @@ namespace PharmaSISuperTest
             this.produit.GripMargin = new System.Windows.Forms.Padding(2);
             this.produit.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.produit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultation,
+            this.Back,
             this.produitt,
             this.saisie,
             this.deconexion});
@@ -62,25 +62,16 @@ namespace PharmaSISuperTest
             this.produit.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.produit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.produit.Size = new System.Drawing.Size(1283, 30);
-            this.produit.TabIndex = 39;
+            this.produit.TabIndex = 40;
             this.produit.Text = "menuStrip2";
             // 
-            // consultation
+            // Back
             // 
-            this.consultation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.praticien});
-            this.consultation.ForeColor = System.Drawing.Color.White;
-            this.consultation.Image = global::PharmaSISuperTest.Properties.Resources.Icon_2;
-            this.consultation.Name = "consultation";
-            this.consultation.Size = new System.Drawing.Size(134, 28);
-            this.consultation.Text = "Consultation";
-            // 
-            // praticien
-            // 
-            this.praticien.Name = "praticien";
-            this.praticien.Size = new System.Drawing.Size(180, 26);
-            this.praticien.Text = "Praticien";
-            this.praticien.Click += new System.EventHandler(this.praticien_Click);
+            this.Back.ForeColor = System.Drawing.Color.White;
+            this.Back.Image = global::PharmaSISuperTest.Properties.Resources.back;
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(78, 28);
+            this.Back.Text = "Back";
             // 
             // produitt
             // 
@@ -125,79 +116,74 @@ namespace PharmaSISuperTest
             this.deconexion.Text = "Déconnexion";
             this.deconexion.Click += new System.EventHandler(this.deconexion_Click);
             // 
-            // statusLabel
-            // 
-            this.statusLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
-            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.ForeColor = System.Drawing.Color.White;
-            this.statusLabel.Location = new System.Drawing.Point(503, 311);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(277, 51);
-            this.statusLabel.TabIndex = 40;
-            this.statusLabel.Text = "Bonjour ... 👋\r\n";
-            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(107)))), ((int)(((byte)(71)))));
             this.pictureBox2.Image = global::PharmaSISuperTest.Properties.Resources.Icon;
-            this.pictureBox2.Location = new System.Drawing.Point(583, 130);
+            this.pictureBox2.Location = new System.Drawing.Point(584, 72);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(123, 123);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox9
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox9.Image = global::PharmaSISuperTest.Properties.Resources.Box_connexion;
-            this.pictureBox9.Location = new System.Drawing.Point(105, 82);
+            this.pictureBox9.Location = new System.Drawing.Point(55, 43);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(1072, 597);
+            this.pictureBox9.Size = new System.Drawing.Size(1172, 697);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 20;
+            this.pictureBox9.TabIndex = 21;
             this.pictureBox9.TabStop = false;
             // 
-            // Home
+            // dataGridViewPraticiens
+            // 
+            this.dataGridViewPraticiens.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.dataGridViewPraticiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPraticiens.Location = new System.Drawing.Point(185, 252);
+            this.dataGridViewPraticiens.Name = "dataGridViewPraticiens";
+            this.dataGridViewPraticiens.Size = new System.Drawing.Size(944, 388);
+            this.dataGridViewPraticiens.TabIndex = 42;
+            this.dataGridViewPraticiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPraticiens_CellContentClick);
+            // 
+            // Consultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1283, 760);
-            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.dataGridViewPraticiens);
             this.Controls.Add(this.produit);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Home";
-            this.Text = "Home";
-            this.Load += new System.EventHandler(this.Home_Load);
+            this.Name = "Consultation";
+            this.Text = "Consultation";
+            this.Load += new System.EventHandler(this.Consultation_Load);
             this.produit.ResumeLayout(false);
             this.produit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPraticiens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripMenuItem consultation;
-        private System.Windows.Forms.ToolStripMenuItem praticien;
+        private System.Windows.Forms.MenuStrip produit;
         private System.Windows.Forms.ToolStripMenuItem produitt;
         private System.Windows.Forms.ToolStripMenuItem saisie;
-        private System.Windows.Forms.MenuStrip produit;
-        private System.Windows.Forms.ToolStripMenuItem deconexion;
         private System.Windows.Forms.ToolStripMenuItem creecompterendu;
         private System.Windows.Forms.ToolStripMenuItem voircompterendu;
-        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.ToolStripMenuItem deconexion;
+        private System.Windows.Forms.ToolStripMenuItem Back;
+        private System.Windows.Forms.DataGridView dataGridViewPraticiens;
     }
 }

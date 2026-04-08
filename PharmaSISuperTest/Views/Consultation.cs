@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using PharmaSISuperTest.Models;
 using PharmaSISuperTest.Services;
 
-namespace PharmaSISuperTest
+namespace PharmaSISuperTest.Views
 {
     public partial class Consultation : Form
     {

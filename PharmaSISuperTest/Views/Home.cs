@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Linq;
 using PharmaSISuperTest.Models;
 
-namespace PharmaSISuperTest
+namespace PharmaSISuperTest.Views
 {
     public partial class Home : Form
     {

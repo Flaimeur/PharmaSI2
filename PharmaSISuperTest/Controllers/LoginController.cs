@@ -1,6 +1,7 @@
 using System;
 using PharmaSISuperTest.Models;
 using PharmaSISuperTest.Services;
+using PharmaSISuperTest.Views;
 using PharmaSISuperTest.Helpers;
 
 namespace PharmaSISuperTest.Controllers

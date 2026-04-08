@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using PharmaSISuperTest.Models;
 using PharmaSISuperTest.Controllers;
 
-namespace PharmaSISuperTest
+namespace PharmaSISuperTest.Views
 {
     public partial class Login : Form
     {

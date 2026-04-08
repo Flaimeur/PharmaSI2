@@ -1,7 +1,7 @@
 ﻿using PharmaSISuperTest.Helpers;     
 
 
-namespace PharmaSISuperTest
+namespace PharmaSISuperTest.Views
 {
     partial class Login
     {
